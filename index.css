@@ -130,6 +130,7 @@ p {
 /* Redes sociales */
 .social-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
   margin-top: 10px;

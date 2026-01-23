@@ -1,4 +1,55 @@
 /* === FUNCIONES JAVASCRIPT === */
+/* Mostrar popup con QRCode */
+function mostrarQRCodePopup() {
+  // Crear el fondo oscuro
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.background = 'rgba(0,0,0,0.6)';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.zIndex = '9999';
+
+  // Crear el popup
+  const popup = document.createElement('div');
+  popup.style.background = '#fff';
+  popup.style.padding = '24px';
+  popup.style.borderRadius = '12px';
+  popup.style.boxShadow = '0 2px 16px rgba(0,0,0,0.2)';
+  popup.style.textAlign = 'center';
+
+  // Imagen QR
+  const img = document.createElement('img');
+  img.src = 'images/QRCode.png';
+  img.alt = 'QR Code';
+  img.style.maxWidth = '300px';
+  img.style.width = '100%';
+  img.style.height = 'auto';
+
+  // Botón cerrar
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = 'Cerrar';
+  closeBtn.style.marginTop = '16px';
+  closeBtn.style.padding = '8px 20px';
+  closeBtn.style.border = 'none';
+  closeBtn.style.background = '#a01b25';
+  closeBtn.style.color = '#fff';
+  closeBtn.style.borderRadius = '6px';
+  closeBtn.style.cursor = 'pointer';
+  closeBtn.onclick = function() {
+    document.body.removeChild(overlay);
+  };
+
+  popup.appendChild(img);
+  popup.appendChild(closeBtn);
+  overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+}
+
 /* Función para compartir el enlace en móviles */
 function compartirEnlace() {
   const url = "https://hatechnologiespr.github.io/CarolDianeHA/"; // Cambia esto por la URL que deseas compartir
